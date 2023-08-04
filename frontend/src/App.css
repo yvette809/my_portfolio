@@ -62,11 +62,6 @@ a:hover {
   text-decoration: none;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 button {
   border: 0;
   background-color: transparent;
@@ -240,6 +235,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
+}
+
+.nav-logo, .footer-logo {
+  width: 40%;
+  height: auto;
+  border-radius: 50%;
 }
 
 /************ Banner Css ************/
@@ -439,8 +440,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 0 55px 55px 0;
 }
 .proj-imgbx {
-  height: 350px;
-  width: 350px;
+  height: 250px;
+  width: 400px;
   position: relative;
   border-radius: 30px;
   overflow: hidden;
@@ -448,8 +449,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 24px;
 }
 .proj-imgbx img {
-  height: 350px;
-  width: 350px;
+  height: 250px;
+  width: 400px;
 }
 .proj-imgbx::before {
   content: "";
@@ -488,6 +489,27 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.8px;
+}
+
+.proj-txtx .links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.proj-txtx .links a:hover {
+  color: #aa367c;
+  transition: hover 0.5s ease-in-out;
+}
+
+.tag_name p {
+  font-weight: 700;
+}
+
+.tag_name p span {
+  color: purple;
+  font-weight: 700;
 }
 
 .background-image-right {

@@ -1,18 +1,3 @@
-/* import {
-    javascript,
-    typescript,
-    html,
-    css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
-    git,
-    figma,
-    docker,
-  } from '../assets/tech'
-   */
 
   import javascript from '../assets/tech/javascript.png'
   import typescript from '../assets/tech/typescript.png'
@@ -26,6 +11,9 @@
   import figma from '../assets/tech/figma.png'
   import docker from '../assets/tech/docker.png'
   import nodejs from '../assets/tech/nodejs.png'
+import projImg1 from "../assets/img/project-img1.jpg";
+import projImg2 from "../assets/img/project-img.png";
+import projImg3 from "../assets/img/project-img3.png";
 
   export const navLinks = [
     {
@@ -197,67 +185,70 @@
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Beach Resort",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Web-based platform that allows users to search, book, and manage resort booking  providing a convenient and efficient solution for holidays.",
       tags: [
         {
-          name: "react",
+          name: "React",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "Mongodb",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "Context",
           color: "pink-text-gradient",
         },
       ],
-      image: '',
-      source_code_link: "https://github.com/",
+      image: projImg2,
+      source_code_link: "https://github.com/yvette809/Resort",
+      webPageLink: "https://beach4-resort1.netlify.app/"
     },
     {
-      name: "Job IT",
+      name: "WSK Football website",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "A website that shocase the activities of Wakanda Football club Umeå. It is a fullstack webApp",
       tags: [
         {
-          name: "react",
+          name: "React",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "Restapi",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "React-bootstrap",
           color: "pink-text-gradient",
         },
       ],
-      image: '',
-      source_code_link: "https://github.com/",
+      image: projImg1,
+      source_code_link: "https://github.com/yvette809/wakanda-frontend",
+      webPageLink: "https://wakanda-client.herokuapp.com/"
     },
     {
-      name: "Trip Guide",
+      name: "ElectroShop",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "A fullstack e-commerce website specialsed in the selling of electronics",
       tags: [
         {
-          name: "nextjs",
+          name: "Nodejs",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "Redux Toolkit",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "Css",
           color: "pink-text-gradient",
         },
       ],
-      image: '',
+      image: projImg3,
       source_code_link: "https://github.com/",
+      webPageLink: "https://wakanda-client.herokuapp.com/"
     },
   ];
   
