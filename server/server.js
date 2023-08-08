@@ -1,52 +1,73 @@
+// server.js
 const express = require("express");
-const router = express.Router();
-const cors = require("cors");
-const nodemailer = require("nodemailer");
-
-// server used to send send emails
 const app = express();
-app.use(cors());
+const nodemailer = require("nodemailer");
+const Mailgen = require("mailgen");
+const cors = require("cors");
+const dotenv = require("dotenv");
+
 app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+app.use(cors());
+dotenv.config();
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: "********@gmail.com",
-    pass: ""
-  },
-});
+app.post("/contact", async (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+  const name = firstName + " " + lastName;
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.MY_GMAIL, // Your Gmail email address
+      pass: process.env.MY_PASSWORD, // Your Gmail password or an app password for security
+    },
+    tls: {
+      rejectUnauthorized: false, // Accept self-signed certificates
+    },
+  });
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "********@gmail.com",
-    subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+  const mailGenerator = new Mailgen({
+    theme: "default",
+    product: {
+      name: "My personal Website",
+      link: "https://your-product-website.com/",
+    },
+  });
+
+  const emailContent = {
+    body: {
+      greeting: "Hello Yvette",
+      intro: `You have received a new message from ${name}.`,
+      outro: `
+      <p>${message}</p>
+      <p>Please call me back on ${phone}</p>
+      <p>${email}</p>
+      
+      `,
+      signature: `Best Regards,\n ${firstName}`,
+    },
   };
-  contactEmail.sendMail(mail, (error) => {
+
+  const emailBody = mailGenerator.generate(emailContent);
+
+  const mailOptions = {
+    from: email,
+    to: process.env.MY_GMAIL,
+    replyTo: email,
+    html: emailBody,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      res.json(error);
+      console.log("Error sending the email:", error);
+      res.status(500).json({ message: "Error sending the message." });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      console.log("Email sent successfully:", info.response);
+      res.status(201).json({
+        message: "Thank you for contacting us! We will get back to you soon.",
+      });
     }
   });
 });
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
