@@ -1,6 +1,4 @@
-import colorSharp from "../assets/img/color-sharp.png";
 import { technologies } from "../constants";
-
 export const Skills = () => {
   return (
     <section className="skill" id="skills">
@@ -18,7 +16,6 @@ export const Skills = () => {
           </div>
         </div>
       </div>
-     
     </section>
   );
 };
