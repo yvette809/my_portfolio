@@ -50,6 +50,7 @@ app.post("/contact", async (req, res) => {
   const emailBody = mailGenerator.generate(emailContent);
 
   const mailOptions = {
+    subject: "Please Contact me",
     from: email,
     to: process.env.MY_GMAIL,
     replyTo: email,

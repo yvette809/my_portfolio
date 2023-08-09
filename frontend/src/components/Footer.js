@@ -6,12 +6,12 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 
 export const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer mt-3">
       <Container>
         <Row className="align-items-center">
-          <Col size={12} sm={6}>
+         {/*  <Col size={12} sm={6}>
             <img src={logo} alt="Logo" className="footer-logo mt-2"/>
-          </Col>
+          </Col> */}
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
               <a href="https://www.linkedin.com/in/yvette-tanila-a8708b20/">
