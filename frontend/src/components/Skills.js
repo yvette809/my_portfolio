@@ -9,8 +9,8 @@ export const Skills = () => {
           <h2 className="mb-3">Skills</h2>
 
           <div className="skills-grid">
-            {technologies.map((technology) => (
-              <div className="tech-skill">
+            {technologies.map((technology, index) => (
+              <div className="tech-skill" key={index}>
                 <img src={technology.icon} alt="technologies" />
                 {<p>{technology.name}</p>}
               </div>

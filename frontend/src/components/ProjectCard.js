@@ -1,11 +1,11 @@
 import { Col } from "react-bootstrap";
 
-export const ProjectCard = ({ project }) => {
+export const ProjectCard = ({ project}) => {
   const { name, description, tags, image, source_code_link, webPageLink } =
     project;
   return (
     <Col size={12} sm={6} md={4}>
-      <div className="proj-imgbx ">
+      <div className="proj-imgbx " key ={project.id}>
         <img src={image} />
         <div className="proj-txtx">
           <h4 className="text-white">{name}</h4>

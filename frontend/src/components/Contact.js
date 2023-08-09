@@ -14,7 +14,7 @@ export const Contact = () => {
   };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
+  const[message,setMessage] = useState('')
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -24,7 +24,6 @@ export const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-
     try {
       e.preventDefault();
       setButtonText("Sending...");
@@ -36,15 +35,18 @@ export const Contact = () => {
         body: JSON.stringify(formDetails),
       });
       setButtonText("Send");
-      let result = await response.json();
-  
+      await response.json();
+      if(response.ok){
+        setMessage('Thanks,your Message Has Been Received')
+        setTimeout(()=>{
+          setMessage('')
+        },4000)
+      }
+
       setFormDetails(formInitialDetails);
-      
     } catch (error) {
-      console.log(error)
-      
+      console.log(error);
     }
-   
   };
 
   return (
@@ -72,6 +74,7 @@ export const Contact = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
+                  {message && <h2 className="text-success text-center">{message}</h2>}
                   <h2>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
@@ -128,17 +131,6 @@ export const Contact = () => {
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
-                        <Col>
-                          <p
-                            className={
-                              status.success === false ? "danger" : "success"
-                            }
-                          >
-                            {status.message}
-                          </p>
-                        </Col>
-                      )}
                     </Row>
                   </form>
                 </div>
