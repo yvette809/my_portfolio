@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -14,7 +15,7 @@ export const Contact = () => {
   };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const[message,setMessage] = useState('')
+  const [message, setMessage] = useState("");
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -24,30 +25,45 @@ export const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      setButtonText("Sending...");
-      let response = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(formDetails),
-      });
-      setButtonText("Send");
-      await response.json();
-      if(response.ok){
-        setMessage('Thanks,your Message Has Been Received')
-        setTimeout(()=>{
-          setMessage('')
-        },4000)
-      }
+    e.preventDefault();
 
-      setFormDetails(formInitialDetails);
-    } catch (error) {
-      console.log(error);
-    }
+    const serviceID = "service_ity2zun";
+    const templateID = "template_qkp1gsr";
+    const userID = "Fuv3g_at_HZBYCYve";
+
+    // Initialize EmailJS with your user ID and specified scope(s)
+    emailjs.init(userID);
+    const { firstName, lastName, email, message, phone } = formDetails;
+
+    console.log("details", firstName, lastName, email, phone, message);
+    const emailParams = {
+      from_name: firstName + " " + lastName,
+      to_name: "Yvette",
+      from_email: email,
+      to_email: "nchombuayvta@gmail.com",
+      message,
+      phone,
+    };
+    emailjs
+      .send(serviceID, templateID, emailParams)
+      .then((response) => {
+        setMessage("Thank you. I will get back to you as soon as possible.");
+        console.log("Email sent:", response);
+        setFormDetails(formInitialDetails);
+        setMsgTimeOut();
+      })
+      .catch((error) => {
+        console.error("Email error:", error);
+        setMessage("Something went wrong");
+        setMsgTimeOut();
+      });
   };
+
+  function setMsgTimeOut() {
+    setTimeout(() => {
+      setMessage("");
+    }, 4000);
+  }
 
   return (
     <section className="contact" id="connect">
@@ -74,7 +90,9 @@ export const Contact = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  {message && <h2 className="text-success text-center">{message}</h2>}
+                  {message && (
+                    <h2 className="text-primary text-center">{message}</h2>
+                  )}
                   <h2>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
