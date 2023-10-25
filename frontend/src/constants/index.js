@@ -13,6 +13,7 @@ import nodejs from "../assets/tech/nodejs.png";
 import projImg1 from "../assets/img/project-img1.jpg";
 import projImg2 from "../assets/img/project-img.png";
 import projImg3 from "../assets/img/project-img3.png";
+import projImg4 from "../assets/img/project-img4.png";
 
 export const navLinks = [
   {
@@ -208,6 +209,28 @@ const projects = [
   },
   {
     id: 2,
+    name: "Airbnb clone",
+    description: "A fullstack market place for apartment,rooms rental",
+    tags: [
+      {
+        name: "Nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Prisma",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Css",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: projImg4,
+    source_code_link: "https://github.com/yvette809/airbnb-",
+    webPageLink: "https://airbnb-arnl.vercel.app/",
+  },
+  {
+    id: 3,
     name: "WSK Football website",
     description:
       "A website that shocase the activities of Wakanda Football club Umeå. It is a fullstack webApp",
@@ -230,7 +253,7 @@ const projects = [
     webPageLink: "https://wakanda-client.herokuapp.com/",
   },
   {
-    id: 3,
+    id: 4,
     name: "ElectroShop",
     description:
       "A fullstack e-commerce website specialsed in the selling of electronics",
