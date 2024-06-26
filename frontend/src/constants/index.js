@@ -1,4 +1,5 @@
 import javascript from "../assets/tech/javascript.png";
+import javascript from "../assets/tech/java.png";
 import typescript from "../assets/tech/typescript.png";
 import html from "../assets/tech/html.png";
 import css from "../assets/tech/css.png";
@@ -12,7 +13,7 @@ import docker from "../assets/tech/docker.png";
 import nodejs from "../assets/tech/nodejs.png";
 import projImg1 from "../assets/img/project-img1.jpg";
 import projImg2 from "../assets/img/project-img.png";
-import projImg3 from "../assets/img/project-img3.png";
+import projImg3 from "../assets/img/project-img3(2).png";
 import projImg4 from "../assets/img/project-img4.png";
 
 export const navLinks = [
@@ -35,17 +36,14 @@ const services = [
     title: "Web Developer",
     icon: "web",
   },
-  {
-    title: "React Native Developer",
-    icon: " mobile",
-  },
+  
   {
     title: "Backend Developer",
-    icon: "",
+    icon: "javascript",
   },
   {
-    title: "Content Creator",
-    icon: "",
+    title: "Fullstack Developer",
+    icon: "git",
   },
 ];
 
@@ -93,6 +91,18 @@ const technologies = [
   },
   {
     name: "figma",
+    icon: figma,
+  },
+  {
+    name: "java",
+    icon: java,
+  },
+  {
+    name: "spring boot",
+    icon: figma,
+  },
+  {
+    name: "mySql",
     icon: figma,
   },
   {
@@ -254,22 +264,19 @@ const projects = [
   },
   {
     id: 4,
-    name: "ElectroShop",
+    name: "Activity-Finder",
     description:
-      "A fullstack e-commerce website specialsed in the selling of electronics",
+      "A fullstack website build with Nextjs and Tailwind Css ",
     tags: [
       {
         name: "Nodejs",
         color: "blue-text-gradient",
       },
       {
-        name: "Redux Toolkit",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Css",
+        name: "Tailwind Css",
         color: "pink-text-gradient",
       },
+      
     ],
     image: projImg3,
     source_code_link: "https://github.com/",
