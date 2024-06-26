@@ -1,5 +1,5 @@
 import javascript from "../assets/tech/javascript.png";
-import javascript from "../assets/tech/java.png";
+import java from "../assets/tech/java.png";
 import typescript from "../assets/tech/typescript.png";
 import html from "../assets/tech/html.png";
 import css from "../assets/tech/css.png";
@@ -13,7 +13,7 @@ import docker from "../assets/tech/docker.png";
 import nodejs from "../assets/tech/nodejs.png";
 import projImg1 from "../assets/img/project-img1.jpg";
 import projImg2 from "../assets/img/project-img.png";
-import projImg3 from "../assets/img/project-img3(2).png";
+import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 
 export const navLinks = [
@@ -99,7 +99,7 @@ const technologies = [
   },
   {
     name: "spring boot",
-    icon: figma,
+    icon: java,
   },
   {
     name: "mySql",
@@ -239,8 +239,29 @@ const projects = [
     source_code_link: "https://github.com/yvette809/airbnb-",
     webPageLink: "https://airbnb-arnl.vercel.app/",
   },
+ 
   {
     id: 3,
+    name: "Activity-Finder",
+    description:
+      "A fullstack website build with Nextjs and Tailwind Css ",
+    tags: [
+      {
+        name: "Nodejs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Tailwind Css",
+        color: "pink-text-gradient",
+      },
+      
+    ],
+    image: projImg3,
+    source_code_link: "https://github.com/yvette809/activity-finder",
+    webPageLink: "https://activity-finder-one.vercel.app/",
+  },
+  {
+    id: 4,
     name: "WSK Football website",
     description:
       "A website that shocase the activities of Wakanda Football club Umeå. It is a fullstack webApp",
@@ -260,26 +281,6 @@ const projects = [
     ],
     image: projImg1,
     source_code_link: "https://github.com/yvette809/wakanda-frontend",
-    webPageLink: "https://wakanda-client.herokuapp.com/",
-  },
-  {
-    id: 4,
-    name: "Activity-Finder",
-    description:
-      "A fullstack website build with Nextjs and Tailwind Css ",
-    tags: [
-      {
-        name: "Nodejs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Tailwind Css",
-        color: "pink-text-gradient",
-      },
-      
-    ],
-    image: projImg3,
-    source_code_link: "https://github.com/",
     webPageLink: "https://wakanda-client.herokuapp.com/",
   },
 ];
