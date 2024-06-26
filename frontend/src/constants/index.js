@@ -1,5 +1,7 @@
 import javascript from "../assets/tech/javascript.png";
 import java from "../assets/tech/java.png";
+import spring from "../assets/tech/spring.png";
+import mysql from "../assets/tech/mysql.png";
 import typescript from "../assets/tech/typescript.png";
 import html from "../assets/tech/html.png";
 import css from "../assets/tech/css.png";
@@ -99,11 +101,11 @@ const technologies = [
   },
   {
     name: "spring boot",
-    icon: java,
+    icon: spring,
   },
   {
     name: "mySql",
-    icon: figma,
+    icon: mysql,
   },
   {
     name: "docker",
